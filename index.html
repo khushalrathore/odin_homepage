@@ -6,6 +6,399 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <title>odin_homepage</title>
+  <style hidden="true">
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+    @media (max-width:70em) {
+      .contactMeSection {
+        padding: 1rem !important;
+      }
+
+      .heading {
+        font-size: 2rem !important;
+      }
+
+      header {
+        display: grid !important;
+        padding: 1rem !important;
+
+        section {
+          p {
+            max-width: 100% !important;
+          }
+        }
+
+        img {
+          width: 100% !important;
+        }
+
+        flex-direction: column !important;
+      }
+
+      main {
+        padding: 1rem !important;
+
+      }
+
+      .card {
+        max-width: 100% !important;
+      }
+    }
+
+    img {
+      font-size: 0px;
+      height: 167px;
+
+    }
+
+    .shortLink {
+      text-decoration: none;
+      padding: 4px 8px;
+      color: rgb(0, 46, 170);
+      color: black;
+
+
+      &:hover {
+        background: rgba(34, 0, 255, 0.126);
+        padding: 4px 8px;
+        border-radius: 100dvw;
+      }
+    }
+
+    .bigLink {
+      text-decoration: none;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background: linear-gradient(120deg, blue, red);
+
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all 250ms;
+      }
+    }
+
+    .bigLink:hover::before {
+      transform: scaleX(1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      font-family: "IBM Plex Mono", monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    .heading {
+      font-family: monospace;
+      font-size: 1.5rem;
+      color: rgb(0, 46, 170);
+
+    }
+
+    :root {
+      --red: #ba3532;
+      --green: #02f726;
+    }
+
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 4rem;
+      position: relative;
+      gap: 1rem;
+      /* background: url("https://plus.unsplash.com/premium_photo-1664438942504-cc05d2c80f38?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background: url("https://cdn.dribbble.com/userupload/10961817/file/original-780a37392a71d6383bf42e2be5b9055a.jpg?resize=400x0"); */
+      background: url(./assets/bg.jpg);
+      z-index: 0;
+
+      &::before {
+        position: absolute;
+        content: '';
+        inset: 0;
+        background: radial-gradient(rgba(253, 245, 230, 0.5), rgba(248, 248, 255, 0.5), rgba(245, 245, 245, 0.5));
+        z-index: -1;
+        backdrop-filter: blur(50px);
+        -webkit-backdrop-filter: blur(50px);
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        inset: 0;
+        background: url("");
+        z-index: -1;
+        opacity: 0.1;
+        /* height: 50%; */
+        backdrop-filter: blur(50px);
+        -webkit-backdrop-filter: blur(50px);
+      }
+    }
+
+    img.aboutMeImage {
+      background: cyan;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      height: 340px;
+    }
+
+    section.headerSection {
+      /* border-radius: 1rem; */
+      background: ghostwhite;
+      padding: 1rem 2rem 1.25rem 2rem;
+      border: 2px solid transparent;
+
+      /* &:hover {
+    border: 2px solid black;
+  } */
+
+      .heading {
+        margin-block: 1rem 0;
+      }
+
+      p {
+        color: black;
+        margin-block: 0.5rem 0.5rem;
+        max-width: 55ch;
+      }
+
+
+    }
+
+    .aboutLinks {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      flex-direction: row;
+      gap: 1rem
+    }
+
+    main {
+      background: ghostwhite;
+      padding: 2rem 4rem;
+
+      .heading {
+        font-size: 5rem;
+        color: rgb(0, 46, 170);
+
+      }
+
+      .projects {
+        display: grid;
+        margin-top: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+
+        .card {
+          background: white;
+          padding: 0.5rem;
+          padding-bottom: 0;
+          max-width: 300px;
+          display: grid;
+          grid-template-rows: 0.4fr 1fr;
+          place-content: center;
+          border: 1px solid rgb(0, 46, 170);
+          box-shadow: none;
+          transition: all 250ms;
+
+          &:hover {
+            transform: translate(5px, -5px);
+
+            box-shadow:
+              rgba(0, 46, 170, 0.4) -5px 5px,
+              rgba(0, 46, 170, 0.3) -10px 10px,
+              rgba(0, 46, 170, 0.2) -15px 15px,
+              rgba(0, 46, 170, 0.1) -20px 20px,
+              rgba(0, 46, 170, 0.05) -25px 25px;
+          }
+
+          .cardImage {
+            object-fit: cover;
+            transition: all 250ms;
+            width: 100%;
+          }
+
+          .cardDesc {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0;
+            margin-inline: 0.15rem;
+            position: relative;
+
+            p {
+              text-align: start;
+            }
+
+            .date {
+              position: absolute;
+              bottom: 0.5rem;
+              right: 0.125rem;
+              font-size: 80%;
+              color: gray;
+            }
+
+            .cardDescTitle {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              span {
+                font-weight: bold;
+                font-size: 110%;
+              }
+
+              div {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+          }
+        }
+
+        .card:hover .cardImage {
+          filter: opacity(1) !important;
+        }
+      }
+    }
+
+    .contactMeSection {
+      display: flex;
+
+      padding: 4rem 4rem;
+      background: white;
+
+      .heading {
+        font-size: 5rem;
+        color: black
+      }
+    }
+
+    /* 
+@media (prefers-color-scheme: dark) {
+  * {
+    background: pink;
+  }
+}
+ */
+    .contactMeSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 2rem;
+      background: white;
+      text-align: center;
+    }
+
+    .contactMeSection .heading {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 2rem;
+    }
+
+    .contactForm {
+      display: grid;
+      gap: 1rem;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contactForm label {
+      font-size: 1rem;
+      font-weight: bold;
+      color: black;
+      display: block;
+      text-align: left;
+    }
+
+    .contactForm input,
+    .contactForm textarea {
+      padding: 0.5rem;
+      border: 1px solid black;
+      border-radius: 0;
+      font-size: 1rem;
+      font-family: "IBM Plex Mono", monospace;
+      background: transparent;
+      color: black;
+    }
+
+    .contactForm input:focus,
+    .contactForm textarea:focus {
+      outline: none;
+      border-color: blue;
+      box-shadow: none;
+    }
+
+    .contactForm textarea {
+      resize: vertical;
+    }
+
+    .submitBtn {
+      background: black;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: 1px solid black;
+      border-radius: 0;
+      font-size: 1rem;
+      font-family: "IBM Plex Mono", monospace;
+      cursor: pointer;
+      transition: background 250ms, transform 250ms;
+    }
+
+    .submitBtn:hover {
+      background: blue;
+      transform: scale(1.05);
+    }
+
+    .contactMeSection {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        inset: 0;
+        content: '';
+        background: url(./assets/line.svg);
+        height: 40px;
+      }
+
+      background: white;
+
+      .heading {
+        font-size: 5rem;
+        color: rgb(0, 46, 170);
+
+      }
+
+      padding:2rem 4rem;
+      display: flex;
+      justify-content: start;
+      align-items: start;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+      }
+    }
+  </style>
 </head>
 
 <body>
